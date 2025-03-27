@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "title": "HTML",
+        "description": "HTML is the standard markup language for documents designed to be displayed in a web browser. It can be assisted by technologies such as Cascading Style Sheets (CSS) and scripting languages such as JavaScript.",
+        "duration": "1 week",
+        "image": "html.jpg",
+        "instructor": ["John Doe", "Jane Doe"],
+        "difficulty_level": "Beginner",
+        "tags": ["HTML", "Web Development", "Frontend"]
+    },
+    {
+        "id": 2,
+        "title": "CSS Fundamentals",
+        "description": "Learn the fundamentals of CSS to style web pages and create visually appealing designs. Covers selectors, properties, layouts, and animations.",
+        "duration": "2 weeks",
+        "image": "css.jpg",
+        "instructor": ["Alice Smith"],
+        "difficulty_level": "Beginner",
+        "tags": ["CSS", "Styling", "Web Design"]
+    },
+    {
+        "id": 3,
+        "title": "JavaScript Basics",
+        "description": "A beginner-friendly course covering JavaScript fundamentals, including variables, loops, functions, and event handling.",
+        "duration": "3 weeks",
+        "image": "javascript.jpg",
+        "instructor": ["Bob Johnson"],
+        "difficulty_level": "Beginner",
+        "tags": ["JavaScript", "Programming", "Frontend"]
+    },
+    {
+        "id": 4,
+        "title": "React for Beginners",
+        "description": "An introduction to React.js, covering components, state management, and hooks to build interactive user interfaces.",
+        "duration": "4 weeks",
+        "image": "react.jpg",
+        "instructor": ["Chris Evans"],
+        "difficulty_level": "Intermediate",
+        "tags": ["React", "Frontend", "JavaScript"]
+    },
+    {
+        "id": 5,
+        "title": "Node.js and Express",
+        "description": "Learn how to build server-side applications using Node.js and Express.js. Covers RESTful APIs, middleware, and database integration.",
+        "duration": "5 weeks",
+        "image": "nodejs.jpg",
+        "instructor": ["David Miller"],
+        "difficulty_level": "Intermediate",
+        "tags": ["Node.js", "Backend", "JavaScript"]
+    },
+    {
+        "id": 6,
+        "title": "Full-Stack Web Development",
+        "description": "A comprehensive course covering both frontend and backend technologies, including HTML, CSS, JavaScript, React, Node.js, and databases.",
+        "duration": "10 weeks",
+        "image": "fullstack.jpg",
+        "instructor": ["Emma Brown", "Michael Lee"],
+        "difficulty_level": "Advanced",
+        "tags": ["Full-Stack", "Web Development", "JavaScript"]
+    }
+]
