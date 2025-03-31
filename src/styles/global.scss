@@ -1,2 +1,12 @@
 @use "variables";
 @use "fonts";
+
+/* 
+ *
+ * Components
+ *
+ */
+@use "components/navigation";
+@use "components/hero";
+@use "components/courses";
+@use "components/slider";

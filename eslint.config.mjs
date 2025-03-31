@@ -16,7 +16,6 @@ export default defineConfig([
     "semi": ["error", "always"],
     "quotes": ["error", "double"],
     "indent": ["error", 2],
-    "no-trailing-spaces": "error",
     "eol-last": "error",
   }},
 ]);
