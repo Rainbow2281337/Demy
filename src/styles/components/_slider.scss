@@ -1,0 +1,135 @@
+.image-slider {
+  position: relative;
+  max-width: 1200px;
+  margin: auto;
+  overflow: hidden;
+  border-radius: var(--border-radius-lg);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+  .slider-container {
+    display: flex;
+    overflow: hidden;
+  }
+
+  .slider-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .slide {
+    width: 100%;
+    flex-shrink: 0;
+    object-fit: cover;
+  }
+
+  .prev-btn,
+  .next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 1rem;
+    font-size: var(--font-size-sm);
+    border-radius: 50%;
+    transition: background 0.3s ease;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.8);
+    }
+  }
+
+  .prev-btn {
+    left: 10px;
+  }
+
+  .next-btn {
+    right: 10px;
+  }
+
+  .dots-container {
+    text-align: center;
+    margin-top: 10px;
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      background: #bbb;
+      display: inline-block;
+      margin: 5px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.3s ease;
+
+      &.active {
+        background: var(--primary-color);
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+
+    .prev-btn,
+    .next-btn {
+      padding: 0.8rem;
+      font-size: var(--font-size-xs);
+    }
+
+    .dots-container {
+      margin-top: 8px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      margin: 4px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .prev-btn,
+    .next-btn {
+      padding: 0.5rem;
+      font-size: var(--font-size-xs);
+    }
+
+    .dots-container {
+      margin-top: 6px;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      margin: 3px;
+    }
+  }
+
+  @media (orientation: landscape) {
+    .slider-container {
+      flex-direction: column;
+    }
+
+    .slide {
+      width: 100%;
+      height: auto;
+    }
+
+    .prev-btn,
+    .next-btn {
+      padding: 1rem;
+      font-size: var(--font-size-md);
+    }
+
+    .dots-container {
+      margin-top: 12px;
+    }
+
+    .dot {
+      width: 14px;
+      height: 14px;
+    }
+  }
+}
