@@ -1,38 +1,37 @@
 [
-    {
-        "id": 1,
-        "user_name": "Oleksii",
-        "email": "iAlex@example.com",
-        "password": "123456",
-        "coursePreferences": ["HTML", "CSS", "JavaScript"]
-    },
-    {
-        "id": 2,
-        "user_name": "Ivan",
-        "email": "devmaster@example.com",
-        "password": "qwerty",
-        "coursePreferences": ["JavaScript", "TypeScript", "React"]
-    },
-    {
-        "id": 3,
-        "user_name": "Artem",
-        "email": "codeninja@example.com",
-        "password": "abc123",
-        "avatar": "codeninja.jpg",
-        "coursePreferences": ["Python", "Django", "Flask"]
-    },
-    {
-        "id": 4,
-        "user_name": "Sergii",
-        "email": "aiexplorer@example.com",
-        "password": "securepass",
-        "coursePreferences": ["Machine Learning", "AI", "Python"]
-    },
-    {
-        "id": 5,
-        "user_name": "Yelyzaveta",
-        "email": "yelyzaveta@example.com",
-        "password": "12345678",
-        "coursePreferences": ["3D", "3D Modelling"]
-    }
+  {
+    "id": 1,
+    "user_name": "Oleksii",
+    "email": "iAlex@example.com",
+    "password": "123456",
+    "coursePreferences": ["HTML", "CSS", "JavaScript"]
+  },
+  {
+    "id": 2,
+    "user_name": "Ivan",
+    "email": "devmaster@example.com",
+    "password": "qwerty",
+    "coursePreferences": ["JavaScript", "TypeScript", "React"]
+  },
+  {
+    "id": 3,
+    "user_name": "Artem",
+    "email": "codeninja@example.com",
+    "password": "abc123",
+    "coursePreferences": ["Python", "Django", "Flask"]
+  },
+  {
+    "id": 4,
+    "user_name": "Sergii",
+    "email": "aiexplorer@example.com",
+    "password": "securepass",
+    "coursePreferences": ["Machine Learning", "AI", "Python"]
+  },
+  {
+    "id": 5,
+    "user_name": "Yelyzaveta",
+    "email": "yelyzaveta@example.com",
+    "password": "12345678",
+    "coursePreferences": ["3D", "3D Modelling"]
+  }
 ]

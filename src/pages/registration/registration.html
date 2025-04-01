@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../../dist/css/global.css" />
+    <title>Sign Up - Demy</title>
+  </head>
+  <!-- This is a static registration form for visual styling purposes only. 
+     The form currently does not submit any data, as the application uses a predefined JSON file containing registered users for demonstration. 
+     To make it fully functional, it's better to use or create API. -->
+  <body>
+    <div class="auth-container">
+      <form class="auth-form">
+        <h2>Create your account</h2>
+        <div class="input-group">
+          <label for="username">Username</label>
+          <input
+            type="text"
+            id="username"
+            placeholder="Enter your username"
+            required
+          />
+        </div>
+        <div class="input-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            placeholder="Enter your email"
+            required
+          />
+        </div>
+        <div class="input-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            placeholder="Enter your password"
+            required
+          />
+        </div>
+        <button type="submit" class="auth-btn">Sign Up</button>
+        <p class="auth-text">
+          Already have an account? <a href="../login/login.html">Log in</a>
+        </p>
+      </form>
+    </div>
+  </body>
+</html>

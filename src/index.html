@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../dist/css/global.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
     <title>Demy - Online Learning Platform</title>
   </head>
   <body>
@@ -25,10 +29,15 @@
         </div>
         <div class="nav-search">
           <input type="text" placeholder="Search for courses" />
-          <button type="submit">🔍</button>
+          <button type="submit">
+            <i class="bx bx-search-alt-2"></i>
+          </button>
         </div>
-        <div class="nav-button">
-          <button>Sign In</button>
+        <div class="nav-buttons">
+          <a href="./pages/login/login.html">
+            <i class="bx bx-user bx-sm"></i>
+          </a>
+          <a href="#"><i class="bx bx-cart bx-sm"></i></a>
         </div>
       </nav>
     </header>
@@ -37,13 +46,19 @@
       <img src="./assets/images/hero_img.png" alt="Hero" />
       <div class="hero-text">
         <h1>Keep moving up</h1>
-        <span>Learn the skills you need to take the next step - and every step after.</span>
+        <span
+          >Learn the skills you need to take the next step - and every step
+          after.</span
+        >
       </div>
     </section>
     <section class="courses">
       <div class="courses-header">
         <h1>All the skills you need in one place</h1>
-        <span>From critical skills to technical topics, Demy supports your professional development.</span>
+        <span
+          >From critical skills to technical topics, Demy supports your
+          professional development.</span
+        >
       </div>
       <div class="courses-filter-list">
         <a href="#" class="courses-filter-item">Web Development</a>
@@ -74,9 +89,17 @@
       <div class="slider-container">
         <div class="slider-track">
           <img src="./assets/images/hero_img.png" alt="Slide 1" class="slide" />
-          <img src="./assets/images/slider_img.png" alt="Slide 2" class="slide" />
+          <img
+            src="./assets/images/slider_img.png"
+            alt="Slide 2"
+            class="slide"
+          />
           <img src="./assets/images/hero_img.png" alt="Slide 3" class="slide" />
-          <img src="./assets/images/slider_img.png" alt="Slide 2" class="slide" />
+          <img
+            src="./assets/images/slider_img.png"
+            alt="Slide 2"
+            class="slide"
+          />
           <img src="./assets/images/hero_img.png" alt="Slide 3" class="slide" />
         </div>
       </div>
@@ -84,8 +107,7 @@
       <button class="next-btn">❯</button>
       <div class="dots-container"></div>
     </section>
-    
-    
+
     <script type="module" src="./scripts/main.js"></script>
   </body>
 </html>
