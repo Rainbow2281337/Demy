@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Demy - Course List</title>
+    <link rel="stylesheet" href="../../../dist/css/global.css" />
+  </head>
+  <body>
+    <section class="filters">
+      <div class="container">
+        <form>
+          <div class="filter">
+            <label for="price">Price</label>
+            <select id="price" name="price">
+              <option value="all">All</option>
+              <option value="low-high">Low to High</option>
+              <option value="high-low">High to Low</option>
+            </select>
+          </div>
+
+          <div class="filter">
+            <label for="rating">Average Rating</label>
+            <select id="rating" name="rating">
+              <option value="all">All</option>
+              <option value="5">5 Star</option>
+              <option value="4">4 Star</option>
+              <option value="3">3 Star</option>
+              <option value="2">2 Star</option>
+              <option value="1">1 Star</option>
+            </select>
+          </div>
+
+          <div class="filter">
+            <label for="tags">Tags</label>
+            <select id="tags" name="tags">
+              <option value="all">All</option>
+              <option value="Web Development">Web Development</option>
+              <option value="Frontend">Frontend</option>
+              <option value="Backend">Backend</option>
+              <option value="Frontend">CSS</option>
+              <option value="Frontend">SCSS</option>
+              <option value="Web Design">Web Design</option>
+              <option value="JavaScript">JavaScript</option>
+              <option value="Frontend">React</option>
+              <option value="Frontend">Vue.js</option>
+            </select>
+          </div>
+
+          <div class="filter">
+            <label for="hours">Total Hours</label>
+            <select id="hours" name="hours">
+              <option value="all">All</option>
+              <option value="0-20">0 - 20 Hours</option>
+              <option value="20-40">20 - 40 Hours</option>
+              <option value="40+">40+ Hours</option>
+            </select>
+          </div>
+
+          <div class="filter">
+            <label for="difficulty">Difficulty Level</label>
+            <select id="difficulty" name="difficulty">
+              <option value="all">All</option>
+              <option value="beginner">Beginner</option>
+              <option value="intermediate">Intermediate</option>
+              <option value="advanced">Advanced</option>
+            </select>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section class="courses-list-container">
+      <ul class="courses-list">
+        <!-- Courses will be dynamically inserted here -->
+      </ul>
+      <div class="pagination">
+        <button class="prev-btn" disabled>Previous</button>
+        <span class="page-number">Page 1</span>
+        <button class="next-btn">Next</button>
+      </div>
+    </section>
+
+    <script type="module" src="../../scripts/courseListPageScript.js"></script>
+  </body>
+</html>
