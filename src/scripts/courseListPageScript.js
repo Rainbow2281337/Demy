@@ -48,7 +48,7 @@ const displayCourses = async (page) => {
           </div>
           <div class="course-meta">
             <span class="course-duration">${course.duration}</span>
-            <span class="course-duration">${course.lectures} lectures</span>
+            <span class="course-lectures">${course.lectures} lectures</span>
             <span class="course-difficulty">${course.difficulty_level}</span>
           </div>
           <p class="course-price">${course.price}</p>
