@@ -8,7 +8,7 @@ const PAGE_NUMBER = 1;
 /*
  * Items per page are set as constant to be used in the fetchCourseData function.
  */
-const ITEMS_PER_PAGE = 8;
+const ITEMS_PER_PAGE = 10;
 
 /*
  * An empty array to store the fetched courses.
@@ -50,10 +50,10 @@ const renderCourses = (courses) => {
  * It then fetches the data from the JSON file and populates the coursesList with data.
  */
 export const fetchCourseData = (
+  url = "core/DB/courses.json",
   page = PAGE_NUMBER,
   coursesPerPage = ITEMS_PER_PAGE
 ) => {
-  const url = "core/DB/courses.json";
 
   fetchData(url, page, coursesPerPage)
     .then((data) => {

@@ -1,0 +1,135 @@
+.courses-list-container {
+  padding: var(--spacing-md);
+}
+
+.courses-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  list-style-type: none;
+
+  .course-card {
+    display: flex;
+    gap: var(--spacing-md);
+
+    .course-image {
+      max-width: 400px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .course-info {
+      .course-title {
+        font-weight: 800;
+        font-size: calc(var(--font-size-sm) + 1vw);
+        margin-bottom: var(--spacing-sm);
+        color: var(--text-color);
+      }
+
+      .course-description {
+        font-size: var(--font-size-md);
+        margin-bottom: var(--spacing-xxs);
+      }
+
+      .course-instructors {
+        font-size: var(--font-size-md);
+        color: var(--text-secondary);
+        margin-bottom: var(--spacing-xxs);
+      }
+
+      .course-rating-container {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-xs);
+        margin-bottom: var(--spacing-xxs);
+
+        .course-rating {
+          font-size: var(--font-size-md);
+          font-weight: 600;
+          color: #8b4309;
+        }
+
+        .course-students {
+          font-size: var(--font-size-sm);
+          color: var(--text-secondary);
+        }
+      }
+
+      .course-meta {
+        display: flex;
+        gap: var(--spacing-md);
+        margin-bottom: var(--spacing-lg);
+
+        .course-duration,
+        .course-difficulty {
+          font-size: var(--font-size-md);
+          font-weight: 600;
+          color: var(--text-secondary);
+        }
+      }
+
+      .course-price {
+        font-size: var(--font-size-lg);
+        font-weight: 700;
+        margin-top: auto;
+      }
+    }
+  }
+
+}
+
+.course-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--background-color);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius-lg);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.course-item:hover {
+  background-color: #e6e6e6;
+  transform: translateY(-6px);
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  justify-content: center;
+  margin-top: var(--spacing-lg);
+}
+
+.prev-btn, .next-btn {
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.prev-btn:disabled, .next-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.page-number {
+  font-size: var(--font-size-md);
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .course-card {
+    flex-direction: column;
+    align-items: center;
+  }
+  .course-image {
+    max-width: 100%;
+    height: auto;
+  }
+}
