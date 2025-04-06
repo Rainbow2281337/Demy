@@ -1,12 +1,12 @@
 
-/* 
+/**
  * URL to fetch users data. 
- */
+*/
 const USERS_URL = "../../core/DB/users.json";
 
-/* 
+/**
  * URL to the main page after successful login.
- */
+*/
 const MAIN_PAGE_URL = "http://127.0.0.1:5500/src/index.html";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -14,10 +14,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const emailInput = document.querySelector("#email");
   const passwordInput = document.querySelector("#password");
   
-  /* 
+  /**
    * This function sets user data into local storage.
    * It stores the user's ID, name, email, and course preferences.
-   */
+   * 
+   * @param {*} data - The user data to be stored in local storage. 
+  */
   const setDataIntoLocalStorage = (data) => {
     localStorage.setItem("id", data.id);
     localStorage.setItem("user_name", data.user_name);
@@ -26,10 +28,13 @@ document.addEventListener("DOMContentLoaded", () => {
   };
   
 
-  /* 
-   * This function validates the form inputs.
-   * It checks if the email and password fields are filled.
-   */
+  /**
+   * This function validates the form inputs. It checks if the email and password fields are filled.
+   * 
+   * @param {string} email - The email entered by the user.
+   * @param {string} password - The password entered by the user.
+   * @returns - Returns true if the form is valid, otherwise false.
+  */
   const validateForm = (email, password) => {
     if (!email || !password) {
       alert("Please fill in all fields.");
@@ -38,10 +43,11 @@ document.addEventListener("DOMContentLoaded", () => {
     return true;
   };
   
-  /* 
+  /**
    * This function fetches user data from the provided URL.
-   * It returns the data in JSON format.
-   */
+   * 
+   * @returns - A promise that resolves to the fetched user data.
+  */
   const fetchData = async () => {
     try {
       const response = await fetch(USERS_URL);
@@ -55,13 +61,16 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
   
-  /* 
+  /**
    * This function handles the form submission.
+   * 
+   * @param {*} event 
+   * @remarks
    * It prevents the default form submission behavior, validates the inputs,
    * fetches user data, and checks if the entered email and password match any user.
    * If a match is found, it stores the user data in local storage and redirects to the main page.
    * If no match is found, it alerts the user about invalid credentials.
-   */
+  */
   const handleFormSubmit = async (event) => {
     event.preventDefault();
   
