@@ -16,7 +16,8 @@ export const fetchData = async (url, page = 1, perPage = 10) => {
     
     return slicedData;
   } catch (error) {
-    return console.error("Error fetching data:", error);
+    console.error("Error fetching data:", error);
+    throw error;
   }
 };
 
@@ -31,6 +32,7 @@ export const fetchAllData = async (url) => {
     const response = await fetch(url);
     return await response.json();
   } catch (error) {
-    return console.error("Error fetching data:", error);
+    console.error("Error fetching data:", error);
+    throw error;
   }
 };

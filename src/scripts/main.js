@@ -17,7 +17,7 @@ addEventListener("DOMContentLoaded", () => {
    * When a filter item is clicked, it shows the courses based on the selected tag.
   */
   filterItems.forEach(item => {
-    item.addEventListener("click", (e) => {
+    item.addEventListener("click", async (e) => {
       e.preventDefault();
       const selectedTag = item.getAttribute("data-tag");
 
@@ -26,7 +26,7 @@ addEventListener("DOMContentLoaded", () => {
         fetchCourseData();
       } else {
         currentTag = selectedTag;
-        filterCoursesByTag(selectedTag);
+        await filterCoursesByTag(selectedTag);
       }
     });
   });
