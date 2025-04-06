@@ -1,33 +1,54 @@
-import { fetchData } from "./utils/fetchData.js";
+import { fetchAllData } from "./utils/fetchData.js";
+import { 
+  filterCoursesByPrice, 
+  filterCoursesByRating, 
+  filterCoursesByTag, 
+  filterCoursesByTotalHours, 
+  filterCoursesByLevel 
+} from "./utils/filtering.js";
 
 const coursesListContainer = document.querySelector(".courses-list");
 const prevBtn = document.querySelector(".prev-btn");
 const nextBtn = document.querySelector(".next-btn");
 const pageNumberDisplay = document.querySelector(".page-number");
+const priceFilter = document.getElementById("price");
+const ratingFilter = document.getElementById("rating");
+const tagsFilter = document.getElementById("tags");
+const hoursFilter = document.getElementById("hours");
+const difficultyFilter = document.getElementById("difficulty");
 
-/*
+
+/** 
  * Current page number.
- */
+*/
 let CURRENT_PAGE = 1;
 
-/*
+/**
  * Items per page are set as constant to be used in the fetchData function.
- */
-const ITEMS_PER_PAGE = 10;
+*/
+const ITEMS_PER_PAGE = 10;  // Show 10 courses per page
 
-/* 
+/**
  * Path to the local JSON file containing courses data.
- */
+*/
 const COURSES_URL = "../../core/DB/courses.json";
 
-/* 
- * This function fetches data 
- * and renders courses info for specified page. Also it updates the page number display.
- * It disables the previous button if on the first page 
- * and disables the next button if there are no more courses to display.
- */
-const displayCourses = async (page) => {
-  const courses = await fetchData(COURSES_URL, page, ITEMS_PER_PAGE);
+/** 
+ * An empty array to store the fetched courses.
+*/
+let allCourses = [];
+
+/** 
+ * An empty array to store the courses displayed on the current page.
+*/
+let displayedCourses = [];
+
+/**
+ * This function renders the courses on the page.
+ * 
+ * @param {string[]} courses - The array of courses to be rendered.
+*/
+const renderCourses = (courses) => {
   coursesListContainer.innerHTML = "";
 
   courses.forEach(course => {
@@ -51,29 +72,81 @@ const displayCourses = async (page) => {
             <span class="course-lectures">${course.lectures} lectures</span>
             <span class="course-difficulty">${course.difficulty_level}</span>
           </div>
-          <p class="course-price">${course.price}</p>
+          <p class="course-price">$${course.price}</p>
         </div>
       </div>
     `;
     coursesListContainer.appendChild(courseItem);
   });
+};
+
+/** 
+ * This function filters the displayed courses based on the selected filters.
+ * It updates the displayed courses and renders them.
+*/
+const filterDisplayedCourses = () => {
+  let filteredCourseData = [...displayedCourses];
+
+  filteredCourseData = filterCoursesByRating(filteredCourseData, ratingFilter.value);
+  filteredCourseData = filterCoursesByTag(filteredCourseData, tagsFilter.value);
+  filteredCourseData = filterCoursesByTotalHours(filteredCourseData, hoursFilter.value);
+  filteredCourseData = filterCoursesByLevel(filteredCourseData, difficultyFilter.value);
+  filteredCourseData = filterCoursesByPrice(filteredCourseData, priceFilter.value);
+
+  renderCourses(filteredCourseData);
+};
+
+/**
+ * This function paginates the courses based on the current page.
+ * It calculates the start and end indices for slicing the courses array
+ * and updates the displayed courses accordingly.
+ * 
+ * @param {string[]} courses - The array of courses to be paginated.
+ * @param {number} page - The current page number. 
+*/
+const paginateCourses = (courses, page) => {
+  const start = (page - 1) * ITEMS_PER_PAGE;
+  const end = start + ITEMS_PER_PAGE;
+  displayedCourses = courses.slice(start, end);
+
+  filterDisplayedCourses();
 
   pageNumberDisplay.textContent = `Page ${page}`;
-  
   prevBtn.disabled = page === 1;
-  nextBtn.disabled = courses.length < ITEMS_PER_PAGE;
+  nextBtn.disabled = end >= courses.length;
 };
+
+/**
+ * This function fetches all courses data from the JSON file 
+ * and initializes the pagination and filtering.
+*/
+fetchAllData(COURSES_URL).then(data => {
+  allCourses = data;
+  paginateCourses(allCourses, CURRENT_PAGE);
+});
+
+/**
+ * Event listeners for filter changes.
+ * When a filter is changed, the current page is reset to 1 
+ * and the courses are re-paginated and filtered accordingly.
+*/
+[priceFilter, ratingFilter, tagsFilter, hoursFilter, difficultyFilter].forEach(filter => {
+  filter.addEventListener("change", () => {
+    CURRENT_PAGE = 1;
+    paginateCourses(allCourses, CURRENT_PAGE);
+  });
+});
 
 prevBtn.addEventListener("click", () => {
   if (CURRENT_PAGE > 1) {
     CURRENT_PAGE--;
-    displayCourses(CURRENT_PAGE);
+    paginateCourses(allCourses, CURRENT_PAGE);
   }
 });
 
 nextBtn.addEventListener("click", () => {
-  CURRENT_PAGE++;
-  displayCourses(CURRENT_PAGE);
+  if (CURRENT_PAGE * ITEMS_PER_PAGE < allCourses.length) {
+    CURRENT_PAGE++;
+    paginateCourses(allCourses, CURRENT_PAGE);
+  }
 });
-
-displayCourses(CURRENT_PAGE);

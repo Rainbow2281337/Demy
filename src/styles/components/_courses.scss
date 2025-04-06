@@ -56,6 +56,11 @@
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: var(--spacing-xl) var(--spacing-md);
 
+    .no-courses {
+      font-size: var(--font-size-lg);
+      color: var(--text-secondary);
+    }
+
     .course-item {
       display: flex;
       flex-direction: column;
