@@ -98,3 +98,45 @@ export const fetchCourseData = (
       console.error("Error fetching courses:", error);
     });
 };
+
+/**
+ * This function searches for courses based on the user's input.
+ * It filters the courses based on the title, instructor, or tags.
+ * When the user clears the input and hits enter or search button,
+ * it fetches all courses again.
+ * 
+ * @param {string} query - The search query entered by the user.
+ * @remarks
+ * When the user input some text in the search bar, it hides the hero section 
+ * and filters the courses based on the input. If the input is empty,
+ * it shows the hero section and fetches all courses.
+*/
+export const searchCourses = (query) => {
+  const heroSection = document.querySelector("#hero-section");
+
+  if (!query.trim()) {
+    heroSection.style.display = "flex";
+    fetchCourseData();
+    return;
+  }
+  heroSection.style.display = "none";
+
+  const lowerCaseQuery = query.toLowerCase();
+
+  const filteredCourses = coursesData.filter(course => {
+    const titleMatch = course.title.toLowerCase().includes(lowerCaseQuery);
+    const instructorMatch = course.instructor.some(name =>
+      name.toLowerCase().includes(lowerCaseQuery)
+    );
+    const tagMatch = course.tags.some(tag =>
+      tag.toLowerCase().includes(lowerCaseQuery)
+    );
+    return titleMatch || instructorMatch || tagMatch;
+  });
+
+  if (filteredCourses.length === 0) {
+    showNoCoursesMessage();
+  } else {
+    renderCourses(filteredCourses);
+  }
+};
